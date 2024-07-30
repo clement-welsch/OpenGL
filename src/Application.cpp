@@ -97,17 +97,13 @@ int main(void)
 		shaderBasic.SetUniformMat4f("u_mvp", proj);
 		shaderBasic.SetUniform4f("u_color", 1.0f, 0.0f, 0.0f, 1.0f);
 
-		Shader shaderTess(true);
-		shaderTess.SetUniformMat4f("u_mvp", proj);
-		shaderTess.SetUniform4f("u_color", 0.0f, 1.0f, 0.0f, 1.0f);
-
 		Renderer renderer;
 
 		while (!glfwWindowShouldClose(window))
 		{
 			// Clear the screen
 			renderer.Clear();
-			renderer.Draw(va, ib, shaderBasic, shaderTess);
+			renderer.Draw(va, ib, shaderBasic);
 
 			// Swap buffers
 			GLCall(glfwSwapBuffers(window));
@@ -118,7 +114,6 @@ int main(void)
 		va.Unbind();
 		vb.Unbind();
 		shaderBasic.Unbind();
-		shaderTess.Unbind();
 
 		// Cleanup VBO
 		GLCall(glDeleteVertexArrays(1, &VertexArrayID));

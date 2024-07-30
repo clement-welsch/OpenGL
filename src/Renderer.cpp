@@ -49,7 +49,7 @@ void Renderer::Clear() const
     glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void Renderer::Draw(const VertexArray& _va, const IndexBuffer&  _ib, Shader& _shaderBasic, Shader& _shaderTess) const
+void Renderer::Draw(const VertexArray& _va, const IndexBuffer&  _ib, Shader& _shaderBasic) const
 {
     _ib.Bind();
     _va.Bind();
@@ -65,20 +65,6 @@ void Renderer::Draw(const VertexArray& _va, const IndexBuffer&  _ib, Shader& _sh
         _shaderBasic.SetUniform4f("u_color", 0.28f, 0.64f, 0.29f, 1.0f);
         GLCall(glDrawElements(GL_LINE_STRIP, _ib.GetCount(), GL_UNSIGNED_INT, nullptr));
         _shaderBasic.Unbind();
-    }
-    //2-Draw lines from tessellation
-    {
-        _shaderTess.Bind();
-        _shaderTess.SetUniform4f("u_color", 0.64f, 0.28f, 0.29f, 1.0f);
-        {
-            glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-            glEnable(GL_CULL_FACE);
-        }
-        
-        GLCall(glPatchParameteri(GL_PATCH_VERTICES, 3));
-        GLCall(glDrawElements(GL_PATCHES, _ib.GetCount(), GL_UNSIGNED_INT, nullptr));
-
-        _shaderTess.Unbind();
     }
     //3-Draw vertex
     {

@@ -17,19 +17,6 @@ Shader::Shader() : m_rendererID (0)
 	GLCall(glUseProgram(m_rendererID));
 }
 
-Shader::Shader(const bool _activateTess) : m_rendererID(0)
-{
-	if (_activateTess)
-	{
-		m_rendererID = CreateTessellationShader();
-	}
-	else
-	{
-		m_rendererID = CreateBasicShader();
-	}
-	GLCall(glUseProgram(m_rendererID));
-}
-
 Shader::~Shader()
 {
 	GLCall(glDeleteProgram(m_rendererID));
@@ -148,54 +135,6 @@ unsigned int Shader::CreateBasicShader()
 	GLCall(glValidateProgram(program));
 
 	GLCall(glDeleteShader(vs));
-	GLCall(glDeleteShader(fs));
-
-	return program;
-}
-
-unsigned int Shader::CreateTessellationShader()
-{
-	//Load Files
-	std::string vertexCode = ReadText(s_vertexShaderPath);
-	std::string tesControlCode = ReadText(s_tessControllerShaderPath);
-	std::string tesEvalCode = ReadText(s_tessEvaluationShaderPath);
-	std::string geometryCode = ReadText(s_geometryShaderPath);
-	std::string fragmentCode = ReadText(s_fragmentShaderPath);
-	// create a shader program
-	unsigned int program = glCreateProgram();
-	unsigned int vs = CompileShader(GL_VERTEX_SHADER, vertexCode);
-	unsigned int tesc = CompileShader(GL_TESS_CONTROL_SHADER, tesControlCode);
-	unsigned int tese = CompileShader(GL_TESS_EVALUATION_SHADER, tesEvalCode);
-	unsigned int geos = CompileShader(GL_GEOMETRY_SHADER, geometryCode);
-	unsigned int fs = CompileShader(GL_FRAGMENT_SHADER, fragmentCode);
-
-	GLCall(glAttachShader(program, vs));
-	GLCall(glAttachShader(program, tesc));
-	GLCall(glAttachShader(program, tese));
-	GLCall(glAttachShader(program, geos));
-	GLCall(glAttachShader(program, fs));
-
-	GLCall(glLinkProgram(program));
-
-	GLint program_linked;
-
-	GLCall(glGetProgramiv(program, GL_LINK_STATUS, &program_linked));
-	std::cout << "Program link status: " << program_linked << std::endl;
-	if (program_linked != GL_TRUE)
-	{
-		GLsizei log_length = 0;
-		GLchar message[1024];
-		GLCall(glGetProgramInfoLog(program, 1024, &log_length, message));
-		std::cout << "Failed to link program" << std::endl;
-		std::cout << message << std::endl;
-	}
-
-	GLCall(glValidateProgram(program));
-
-	GLCall(glDeleteShader(vs));
-	GLCall(glDeleteShader(tesc));
-	GLCall(glDeleteShader(tese));
-	GLCall(glDeleteShader(geos));
 	GLCall(glDeleteShader(fs));
 
 	return program;
