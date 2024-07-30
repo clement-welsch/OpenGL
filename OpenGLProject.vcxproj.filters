@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\Application.cpp" />
+    <ClCompile Include="src\IndexBuffer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Renderer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shape.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\VertexArray.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\VertexBuffer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\VertexBufferLayout.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\IndexBuffer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Renderer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Shader.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Shape.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="include\VertexArray.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="include\VertexBuffer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="include\VertexBufferLayout.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\shader\fragment.frag">
+      <Filter>res\shader</Filter>
+    </None>
+    <None Include="res\shader\geometry.geom">
+      <Filter>res\shader</Filter>
+    </None>
+    <None Include="res\shader\tessellation.tesc">
+      <Filter>res\shader</Filter>
+    </None>
+    <None Include="res\shader\tessellation.tese">
+      <Filter>res\shader</Filter>
+    </None>
+    <None Include="res\shader\vertex.vert">
+      <Filter>res\shader</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="res">
+      <UniqueIdentifier>{24e3d72c-5a8a-4a21-b249-0114300105aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{a51536ed-0117-416a-bc4e-f6754cb93719}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res\shader">
+      <UniqueIdentifier>{9acfc6b1-adf7-4cbf-bf1c-3242cbd049ef}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
