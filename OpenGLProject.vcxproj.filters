@@ -23,6 +23,9 @@
     <ClCompile Include="src\VertexBufferLayout.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="api\vendor\stb_image.cpp">
+      <Filter>src\vendor\stb_image</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\IndexBuffer.h">
@@ -45,6 +48,9 @@
     </ClInclude>
     <ClInclude Include="include\VertexBufferLayout.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="api\vendor\stb_image.h">
+      <Filter>src\vendor\stb_image</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +79,12 @@
     </Filter>
     <Filter Include="res\shader">
       <UniqueIdentifier>{9acfc6b1-adf7-4cbf-bf1c-3242cbd049ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\vendor">
+      <UniqueIdentifier>{fb96a469-ef58-4b9c-8d3b-29a7e0eafece}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\vendor\stb_image">
+      <UniqueIdentifier>{bc71f9ca-86d0-4afd-8e89-404482a22838}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
