@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\IndexBuffer.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -23,27 +22,40 @@
     <ClCompile Include="src\VertexBufferLayout.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="api\vendor\stb_image.cpp">
+      <Filter>src\vendor\stb_image</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="src\Texture.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\IndexBuffer.h">
+    <ClInclude Include="api\vendor\stb_image.h">
+      <Filter>src\vendor\stb_image</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Texture.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="include\Renderer.h">
+    <ClInclude Include="src\IndexBuffer.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="include\Shader.h">
+    <ClInclude Include="src\Renderer.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="include\Shape.h">
+    <ClInclude Include="src\Shader.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="include\VertexArray.h">
+    <ClInclude Include="src\Shape.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="include\VertexBuffer.h">
+    <ClInclude Include="src\VertexArray.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="include\VertexBufferLayout.h">
+    <ClInclude Include="src\VertexBuffer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\VertexBufferLayout.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
@@ -74,5 +86,16 @@
     <Filter Include="res\shader">
       <UniqueIdentifier>{9acfc6b1-adf7-4cbf-bf1c-3242cbd049ef}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\vendor">
+      <UniqueIdentifier>{fb96a469-ef58-4b9c-8d3b-29a7e0eafece}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\vendor\stb_image">
+      <UniqueIdentifier>{bc71f9ca-86d0-4afd-8e89-404482a22838}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\avatar2.jpg">
+      <Filter>res</Filter>
+    </Image>
   </ItemGroup>
 </Project>

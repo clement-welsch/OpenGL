@@ -10,11 +10,13 @@
 #include "VertexArray.h"
 #include "Shader.h"
 #include "Shape.h"
+#include "Texture.h"
 
 #include "glm.hpp"
 #include "gtc/matrix_transform.hpp"
 
 const static std::string s_squareShapeFilePath = "res/json/square.json";
+const static std::string s_avatarFilePath = "res/avatar2.jpg";
 
 int main(void)
 {
@@ -26,10 +28,9 @@ int main(void)
 		return -1;
 	}
 
-	//---Shape
-	std::string fileNameSelected = s_squareShapeFilePath;
+	//Shape
 
-	Shape shape(fileNameSelected);
+	Shape shape(s_squareShapeFilePath);
 
 	if (shape.m_listVertex.empty() || shape.m_listIndex.empty())
 	{
@@ -87,6 +88,7 @@ int main(void)
 
 		VertexBufferLayout layout;
 		layout.Push<float>(2);
+		layout.Push<float>(2);
 		va.AddBuffer(vb, layout);
 
 		//matrices transformation
@@ -96,6 +98,12 @@ int main(void)
 		Shader shaderBasic;
 		shaderBasic.SetUniformMat4f("u_mvp", proj);
 		shaderBasic.SetUniform4f("u_color", 1.0f, 0.0f, 0.0f, 1.0f);
+
+		//Texture
+		Texture texture(s_avatarFilePath);
+		texture.Bind(0);
+		//need to match the texture bind arg passed
+		shaderBasic.SetUniform1i("u_texture", 0);
 
 		Renderer renderer;
 
@@ -114,6 +122,7 @@ int main(void)
 		va.Unbind();
 		vb.Unbind();
 		shaderBasic.Unbind();
+		texture.Unbind();
 
 		// Cleanup VBO
 		GLCall(glDeleteVertexArrays(1, &VertexArrayID));

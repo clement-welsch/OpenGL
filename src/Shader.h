@@ -15,6 +15,8 @@ public:
 	void Unbind() const;
 
 	//set uniforms
+	void SetUniform1i(const std::string& _name, int _value);
+	void SetUniform1f(const std::string& _name, float _value);
 	void SetUniform4f(const std::string& _name, float _v0, float _v1, float _v2, float _v3);
 	void SetUniformMat4f(const std::string& _name, const glm::mat4& _matrix);
 	unsigned int GetRendererID() const { return m_rendererID; }
